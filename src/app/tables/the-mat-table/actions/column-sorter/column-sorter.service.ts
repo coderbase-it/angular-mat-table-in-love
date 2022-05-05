@@ -4,6 +4,7 @@ export interface ColumnInfo {
   id: string;
   name: string;
   hidden: boolean;
+  preventBeingHidden?: boolean;
 }
 
 @Injectable({
