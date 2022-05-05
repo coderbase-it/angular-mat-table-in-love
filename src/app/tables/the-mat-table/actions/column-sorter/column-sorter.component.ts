@@ -18,7 +18,6 @@ import { ColumnSorterService, ColumnInfo } from './column-sorter.service';
   styleUrls: ['./column-sorter.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ColumnSorterService],
 })
 export class ColumnSorterComponent implements OnInit, AfterViewInit {
   @Output()

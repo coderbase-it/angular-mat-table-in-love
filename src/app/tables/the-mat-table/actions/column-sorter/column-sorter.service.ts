@@ -6,9 +6,14 @@ export interface ColumnInfo {
   hidden: boolean;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class ColumnSorterService {
-  loadSavedColumnInfo(columnInfo: ColumnInfo[], saveName?: string): ColumnInfo[] {
+  loadSavedColumnInfo(
+    columnInfo: ColumnInfo[],
+    saveName?: string
+  ): ColumnInfo[] {
     // Only load if a save name is passed in
     if (saveName) {
       if (!localStorage) {
