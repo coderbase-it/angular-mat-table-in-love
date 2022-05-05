@@ -33,6 +33,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
   display: block;
   width: 100%;
 }
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
 `,
   ],
   templateUrl: 'table-basic-example.component.html',
@@ -50,12 +59,17 @@ export class TableBasicExample {
       ...this.dataToDisplay,
       ELEMENT_DATA[randomElementIndex],
     ];
-    this.dataSource.setData(this.dataToDisplay);
+    this.dataSource.data = this.dataToDisplay;
   }
 
   removeData() {
     this.dataToDisplay = this.dataToDisplay.slice(0, -1);
-    this.dataSource.setData(this.dataToDisplay);
+    this.dataSource.data = this.dataToDisplay;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
 

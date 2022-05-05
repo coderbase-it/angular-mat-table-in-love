@@ -17,6 +17,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatCardModule,
     MatTableModule,
     MatButtonModule,
+    MatFormFieldModule,
   ],
   entryComponents: [TableBasicExample, ColumnSorterComponent],
   declarations: [
