@@ -21,11 +21,17 @@ const ELEMENT_DATA: PeriodicElement[] = [
 ];
 
 /**
- * @title Basic use of `<table mat-table>`
+ * @title Basic use of `<table the-mat-table>`
  */
 @Component({
   selector: 'table-basic-example',
-  styleUrls: ['table-basic-example.component.css'],
+  styles: [
+    `the-mat-table {
+  display: block;
+  width: 100%;
+}
+`,
+  ],
   templateUrl: 'table-basic-example.component.html',
 })
 export class TableBasicExample {
