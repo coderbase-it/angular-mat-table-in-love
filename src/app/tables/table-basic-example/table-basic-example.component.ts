@@ -1,7 +1,6 @@
 import { DataSource } from '@angular/cdk/collections';
 import { Component, ViewChild } from '@angular/core';
-import { MatTable } from '@angular/material/table';
-import { MatTableDataSource } from '@angular/material/table/table-data-source';
+import { MatTableDataSource } from '@angular/material/table';
 import { Observable, ReplaySubject } from 'rxjs';
 
 export interface PeriodicElement {
