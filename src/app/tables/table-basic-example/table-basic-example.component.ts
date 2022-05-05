@@ -1,5 +1,8 @@
+import { DataSource } from '@angular/cdk/collections';
 import { Component, ViewChild } from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table/table-data-source';
+import { Observable, ReplaySubject } from 'rxjs';
 
 export interface PeriodicElement {
   name: string;
@@ -38,22 +41,27 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class TableBasicExample {
   displayedColumns: any = ['position', 'name', 'weight', 'symbol'];
   displayedColumnsNames: any = ['No.', 'Name', 'Weight', 'Symbol'];
-  dataSource = [...ELEMENT_DATA];
+  dataToDisplay = [...ELEMENT_DATA];
 
-  @ViewChild(MatTable) table: MatTable<PeriodicElement>;
+  dataSource = new PeriodicDataSource(this.dataToDisplay);
 
   addData() {
     const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
-    this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
-    this.table.renderRows();
+    this.dataToDisplay = [
+      ...this.dataToDisplay,
+      ELEMENT_DATA[randomElementIndex],
+    ];
+    this.dataSource.setData(this.dataToDisplay);
   }
 
   removeData() {
-    this.dataSource.pop();
-    this.table.renderRows();
+    this.dataToDisplay = this.dataToDisplay.slice(0, -1);
+    this.dataSource.setData(this.dataToDisplay);
   }
 }
 
-/**  Copyright 2019 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license */
+class PeriodicDataSource extends MatTableDataSource<PeriodicElement> {
+  constructor(initialData: PeriodicElement[]) {
+    super(initialData);
+  }
+}
