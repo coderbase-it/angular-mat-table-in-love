@@ -21,11 +21,11 @@ import { ColumnSorterService, ColumnInfo } from './column-sorter.service';
 })
 export class ColumnSorterComponent implements OnInit, AfterViewInit {
   @Output()
-  columnsChange: EventEmitter<string[]> = new EventEmitter<string[]>();
+  columnsChange: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  columns: string[];
+  columns: any;
   @Input()
-  columnNames: string[];
+  columnNames: any;
   @Input()
   saveName?: string;
 

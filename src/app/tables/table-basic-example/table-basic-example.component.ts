@@ -35,8 +35,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: 'table-basic-example.component.html',
 })
 export class TableBasicExample {
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  displayedColumnsNames = ['No.', 'Name', 'Weight', 'Symbol'];
+  displayedColumns: any = ['position', 'name', 'weight', 'symbol'];
+  displayedColumnsNames: any = ['No.', 'Name', 'Weight', 'Symbol'];
   dataSource = ELEMENT_DATA;
 }
 

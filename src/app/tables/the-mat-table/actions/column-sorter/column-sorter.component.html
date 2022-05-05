@@ -3,7 +3,7 @@
 </button>
 <mat-menu #columnMenu="matMenu">
   <div
-    class="va-mat-table-dragable-container"
+    class="the-mat-table-dragable-container"
     cdkDropList
     dkDropListLockAxis="y"
     cdkDropListOrientation="vertical"
@@ -25,7 +25,7 @@
         {{ column.name }}
       </mat-checkbox>
 
-      <mat-card class="va-mat-table-drag-preview" *cdkDragPreview>
+      <mat-card class="the-mat-table-drag-preview" *cdkDragPreview>
         <mat-icon>drag_indicator</mat-icon>
         <mat-checkbox [checked]="!column.hidden">
           {{ column.name }}
