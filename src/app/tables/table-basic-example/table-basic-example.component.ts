@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatTable } from '@angular/material/table';
 
 export interface PeriodicElement {
   name: string;
@@ -37,7 +38,20 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class TableBasicExample {
   displayedColumns: any = ['position', 'name', 'weight', 'symbol'];
   displayedColumnsNames: any = ['No.', 'Name', 'Weight', 'Symbol'];
-  dataSource = ELEMENT_DATA;
+  dataSource = [...ELEMENT_DATA];
+
+  @ViewChild(MatTable) table: MatTable<PeriodicElement>;
+
+  addData() {
+    const randomElementIndex = Math.floor(Math.random() * ELEMENT_DATA.length);
+    this.dataSource.push(ELEMENT_DATA[randomElementIndex]);
+    this.table.renderRows();
+  }
+
+  removeData() {
+    this.dataSource.pop();
+    this.table.renderRows();
+  }
 }
 
 /**  Copyright 2019 Google Inc. All Rights Reserved.

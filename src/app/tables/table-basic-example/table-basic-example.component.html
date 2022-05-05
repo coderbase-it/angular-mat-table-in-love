@@ -9,6 +9,22 @@
       <mat-icon>view_column</mat-icon>
       Columns
     </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="addData()"
+      class="demo-button"
+    >
+      Add data
+    </button>
+    <button
+      mat-raised-button
+      [disabled]="!dataSource.length"
+      (click)="removeData()"
+      class="demo-button"
+    >
+      Remove data
+    </button>
   </ng-container>
   <table mat-table [dataSource]="dataSource">
     <!--- Note that these columns can be defined in any order.

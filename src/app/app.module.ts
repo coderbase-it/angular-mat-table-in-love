@@ -16,6 +16,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { MatTableModule } from '@angular/material/table';
     MatCheckboxModule,
     MatCardModule,
     MatTableModule,
+    MatButtonModule,
   ],
   entryComponents: [TableBasicExample, ColumnSorterComponent],
   declarations: [
