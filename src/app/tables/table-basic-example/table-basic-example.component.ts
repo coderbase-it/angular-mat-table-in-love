@@ -84,7 +84,7 @@ export class TableBasicExample implements AfterViewInit {
     const user = createNewUser(1);
     const users = [...this.dataSource.data, user];
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new UserTableDataSource(users);
   }
 
   removeData() {
@@ -110,7 +110,7 @@ export class TableBasicExample implements AfterViewInit {
     const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new UserTableDataSource(users);
   }
 }
 
