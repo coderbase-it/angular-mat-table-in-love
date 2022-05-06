@@ -75,7 +75,7 @@ export class TableBasicExample implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
   displayedColumnsNames: any = ['id', 'name', 'progress', 'fruit'];
 
-  dataSource: UserTableDataSource<UserData>;
+  dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -84,7 +84,7 @@ export class TableBasicExample implements AfterViewInit {
     const user = createNewUser(1);
     const users = [...this.dataSource.data, user];
     // Assign the data to the data source for the table to render
-    this.dataSource = new UserTableDataSource(users);
+    this.dataSource = new MatTableDataSource(users);
   }
 
   removeData() {
@@ -110,15 +110,15 @@ export class TableBasicExample implements AfterViewInit {
     const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new UserTableDataSource(users);
+    this.dataSource = new MatTableDataSource(users);
   }
 }
 
-class UserTableDataSource<T> extends MatTableDataSource<UserData> {
-  constructor(initialData: UserData[]) {
-    super(initialData);
-  }
-}
+// class UserTableDataSource<T> extends MatTableDataSource<UserData> {
+//   constructor(initialData: UserData[]) {
+//     super(initialData);
+//   }
+// }
 
 /** Builds and returns a new User. */
 function createNewUser(id: number): UserData {
