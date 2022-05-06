@@ -88,7 +88,8 @@ export class TableBasicExample implements AfterViewInit {
   }
 
   removeData() {
-    this.dataSource.data = this.dataSource.data.slice(0, -1);
+    const users = this.dataSource.data.slice(0, -1);
+    this.dataSource = new MatTableDataSource(users);
   }
 
   applyFilter(event: Event) {
@@ -107,7 +108,7 @@ export class TableBasicExample implements AfterViewInit {
 
   constructor() {
     // Create 100 users
-    const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
+    const users = Array.from({ length: 20 }, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(users);
