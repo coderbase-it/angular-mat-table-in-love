@@ -73,7 +73,7 @@ td, th {
 })
 export class TableBasicExample implements AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
-  displayedColumnsNames: any = ['id', 'name', 'progress', 'fruit'];
+  displayedColumnsNames: string[] = ['id', 'name', 'progress', 'fruit'];
 
   dataSource: MatTableDataSource<UserData>;
 
@@ -84,12 +84,12 @@ export class TableBasicExample implements AfterViewInit {
     const user = createNewUser(1);
     const users = [...this.dataSource.data, user];
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new UserTableDataSource(users);
   }
 
   removeData() {
     const users = this.dataSource.data.slice(0, -1);
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new UserTableDataSource(users);
   }
 
   applyFilter(event: Event) {
@@ -111,15 +111,15 @@ export class TableBasicExample implements AfterViewInit {
     const users = Array.from({ length: 20 }, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
+    this.dataSource = new UserTableDataSource(users);
   }
 }
 
-// class UserTableDataSource<T> extends MatTableDataSource<UserData> {
-//   constructor(initialData: UserData[]) {
-//     super(initialData);
-//   }
-// }
+class UserTableDataSource<T> extends MatTableDataSource<UserData> {
+  constructor(initialData: UserData[]) {
+    super(initialData);
+  }
+}
 
 /** Builds and returns a new User. */
 function createNewUser(id: number): UserData {
